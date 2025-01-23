@@ -1,0 +1,210 @@
+=================================================================================================================
+what is __init__?
+init is a contructor method, it automatically  called to memory then new object/instance create.
+=================================================================================================================
+difference  bwn python list and array .?
+: python list is dynamic array and it support data type heterogeneous, any type 
+    of data can be store in list.
+: array is fixed size array, array is homogeneous is support same time of data
+    in the array.
+=================================================================================================================
+python unix executable file
+#!/usr/bin/env python
+using this line in the first line of code we can archive file executable
+=================================================================================================================
+what is private,protected,global attribute?
+private attribute define with the use of __ before the variable name eg: __var
+protected attribute define with the use of _ before the variable name eg: _var
+global attribute define with the use of global keyword eg: global var
+=================================================================================================================
+what id pass
+pass is a null operation, it does nothing, it is a placeholder when a statement is required synt
+it is use to create empty block element
+=================================================================================================================
+data type in python
+none type
+numaric type
+    - int - im
+    - float
+    - complex
+sequence type
+    - list - mutable, [], list can modified, little slower then tuple
+    - tuple - immutable, (), tuple can't modifie, litile faster then list
+    - range -
+    - str - immutable
+mapping type
+    - dict - {}, data store as key value pair, 
+set type
+    - set - {},no duplicate, no order( no indexing )
+    - frozenset
+boolean type
+    - bool
+=================================================================================================================
+what is docstring
+doc string is use to define multiline string id is use to document a specific code segment
+=================================================================================================================
+what us break, continue and pass?
+break: used to terminate the loop
+continue: used to skip the current iteration and move to the next iteration
+pass: used to do nothing, it is a placeholder when a statement is required syntactically
+=================================================================================================================
+what is self in python?
+self is a reference to the current instance of the class and is used to access variables and methods from
+self is a current object which is use to access variables and methods
+=================================================================================================================
+what is the scope in python?
+scope is the region of the program where a variable is defined and can be accessed
+local variable : it scope only under the block
+global variable : it scope under the block and outside the block
+=================================================================================================================
+What are Dict and List comprehensions?
+my_list = [2, 3, 5, 7, 11]
+Dict comprehensions: It is used to create a new dictionary from an existing dictionary or any other iterable
+squared_dict = {x:x**2 for x in my_list} 
+List comprehensions: It is used to create a new list from an existing list or any other iterable
+squared_list = [x**2 for x in my_list] 
+=================================================================================================================
+what is decorator
+decorator is a function that takes another function as an argument and extends the behavior of the function 
+without changing its source code
+with the use of decorator we can provide extra functality to an existing function
+eg:
+def sum_dec(function):
+   def wrapper(a,b):
+       print("input",a,b)
+       func = function()
+       print("output",func)
+   return wrapper
+
+@sum_dec
+def my_function(a,b):
+    return a+b
+=================================================================================================================
+What is Scope Resolution in Python?
+Scope resolution is the process of resolving the scope of a variable or function in a Python program. It
+determines where a variable or function is defined and where it can be accessed.
+=================================================================================================================
+how memory manage in python?
+Python uses a private heap to manage memory. The heap is a large pool of memory that is used
+to store all objects created in the program. When an object is created, Python allocates memory for
+it in the heap. When an object is no longer needed, Python automatically frees the memory it occupied
+=================================================================================================================
+how Python automatically frees the memory it occupied?
+Python uses a garbage collector to automatically free the memory occupied by an object when it is no longer needed
+The garbage collector periodically checks for objects that are no longer referenced and frees their memory
+=================================================================================================================
+how reference contructing works in python?
+In Python, reference counting is used to manage memory. When an object is created, a reference count
+is incremented. When an object is no longer referenced, the reference count is decremented. When the
+reference count reaches zero, the object is deallocated and its memory is freed
+=================================================================================================================
+how memory management works in python?
+Python uses a combination of reference counting and garbage collection to manage memory. When an object is created,
+Python allocates memory for it and increments its reference count. When an object is no longer referenced,
+Python decrements its reference count. When the reference count reaches zero, Python frees the memory occupied by
+the object. If an object is still referenced but cannot be accessed, Python uses garbage collection to free
+its memory
+=================================================================================================================
+what is garbage collector in python?
+The garbage collector is a mechanism in Python that automatically frees the memory occupied by objects that are no longer
+referenced. It periodically checks for objects that are no longer referenced and frees their memory
+=================================================================================================================
+how to manage memory reference manually?
+You can manage memory reference manually in Python using the following methods:
+1. del statement: You can use the del statement to delete a reference to an object, which
+decrements its reference count and frees its memory if the reference count reaches zero.
+2. sys.getrefcount(): You can use the sys.getrefcount() function to get the
+reference count of an object.
+3. sys.getobjects(): You can use the sys.getobjects() function to get a list of
+objects in the heap.
+4. gc.collect(): You can use the gc.collect() function to manually trigger the garbage collector and
+free the memory occupied by objects that are no longer referenced.
+=================================================================================================================
+how to use weakref in python and why?
+A weak reference is a reference to an object that does not prevent the object from being garbage collected.
+You can use the weakref module in Python to create weak references to objects.
+The weakref module provides the following classes and functions:
+1. weakref.ref: This class creates a weak reference to an object.
+2. weakref.proxy: This class creates a proxy object that references an object.
+3. weakref.finalize: This function finalizes an object when it is no longer referenced.
+=================================================================================================================
+what is lambda function in python?
+A lambda function is a small anonymous function in Python that can take any number of arguments, but can
+only have one expression. It is used to create small functions inline within a larger expression.
+
+func = lambda a+b+c:c*b*c
+re = func(5,6,7)
+print(re)
+=================================================================================================================
+reduce in python?
+The reduce() function applies a rolling computation to sequential pairs of values in a list. It is a
+function from the functools module in Python.
+from functools import reduce
+y = reduce(lambda a,b: a+b,[1,2,3,4])
+print(y)  # Output: 10
+=================================================================================================================
+What are iterators in Python?
+Iterators are objects that allow you to traverse a sequence (such as a list, tuple, or
+string) or other iterable object, without having to create a copy of the entire sequence in memory.
+class iteration_func():
+    def __init__(self, array):
+        self.count = 0
+        self.array = array
+    def __next__(self):
+        if self.count < len(self.array):
+            self.count +=1
+            return self.array[self.count-1]
+=================================================================================================================
+what is traversing?
+Traversing is the process of visiting each element in a data structure, such as a list,
+tuple, or string, in a specific order.
+=================================================================================================================
+what is pass by value and pass by reference in python?
+Pass by value: When a function is called with an argument, a copy of the argument is passed
+to the function. Any changes made to the argument within the function do not affect the original
+variable
+Pass by reference: When a function is called with an argument, a reference to the original
+variable is passed to the function. Any changes made to the argument within the function affect the original variable
+=================================================================================================================
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
